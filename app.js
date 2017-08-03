@@ -52,6 +52,6 @@ var sayHi = function(session) {
 var question = function(session) {
     session.message.text = session.message.text.toLowerCase();
     if (session.message.text.indexOf('загадка') || session.message.text.indexOf('вопрос')){
-        session.send("");
+        session.send("Quesion");
     }
 };
