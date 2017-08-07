@@ -29,13 +29,14 @@ var bot = new builder.UniversalBot(connector, function(session) {
     }
 
     if ( (session.message.text.indexOf("песн") !== -1) || (session.message.text.indexOf("пой") !== -1)) {
-        session.beginDialog('singSong');
+        singSong(session);
     }
 
 });
 
 var sayHi = require('./sayHi');
+var singSong = require("./singSong");
 bot.dialog('question', require('./question'));
-bot.dialog('singSong', require('./singSong'));
+
 
 

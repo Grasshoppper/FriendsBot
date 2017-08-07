@@ -1,32 +1,33 @@
 var builder = require('botbuilder');
-var sleep = require('sleep');
 
-module.exports = [
-    function(session) {
-        session.send("Пока водитель ланоса щелкает еблом");
-        sleep.sleep(1)
+module.exports = function(session) {
+    session.send("Пока водитель ланоса щелкает еблом");
+    session.sendTyping();
+    setTimeout(() => {
         session.send("В киоске покупая нескафе и честер красный");
+        session.sendTyping();
+    }, 2000); 
+    setTimeout(() => {
         session.send("Я двери акуратно открываю а потом");
+        session.sendTyping();
+    }, 4000);
+    setTimeout(() => {
         session.send("Хватаю магнитолу рву проводку и на масу");
+        session.sendTyping();
+    }, 6000);
+    setTimeout(() => {
         session.send("Опа");
+        session.sendTyping();
+    }, 8000);
+    setTimeout(() => {
         session.send("Хуй в рот");
+        session.sendTyping();
+    }, 10000);
+    setTimeout(() => {
         session.send("Хуй в глаз");
-        builder.Prompts.text(session, "подпевайте");
-    },
-    function(session, result) {
-        if (result.response.toLowerCase() == "еблом не щелкай пидорас") {
-            session.send("Хуй в рот");
-            session.send("Хуй в глаз");
-            session.send("Еблом не щелкай пидорас");
-            session.send("Хуй в рот");
-            session.send("Хуй в глаз");
-            session.send("Еблом не щелкай пидорас");
-            session.endDialog();
-        } else 
-        {
-            session.send("Еблом не щелкай пидорас");
-            session.send("Чет я заебался");
-            session.endDialog();
-        }
-    }
-]
+        session.sendTyping();
+    }, 12000);
+    setTimeout(() => {
+        session.send("Еблом не щелкай пидорас");
+    }, 14000);
+} 
