@@ -9,8 +9,8 @@ server.listen(process.env.port || process.env.PORT || 3979, function () {
 
 // Create chat connector for communicating with the Bot Framework Service
 var connector = new builder.ChatConnector({
-    appId: "370319f0-a4c9-4803-820f-c834653766f3",
-    appPassword: "mpXv3HwCjenszA0yrq0TPGL"
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
 // Listen for messages from users 
@@ -20,7 +20,7 @@ server.post('/api/messages', connector.listen());
 var bot = new builder.UniversalBot(connector, function(session) {
     session.message.text = session.message.text.toLowerCase();
     
-    if ( (session.message.text.indexOf("привет") !== -1) ||  (session.message.text.indexOf("ку") !== -1) || (session.message.text.indexOf("прив") !== -1) || (session.message.text.indexOf("хай") !== -1)) {
+    if ( (session.message.text.indexOf("привет") !== -1) ||  (session.message.text.indexOf("здарова") !== -1) || (session.message.text.indexOf("прив") !== -1) || (session.message.text.indexOf("хай") !== -1)) {
         sayHi(session);
     }
     
