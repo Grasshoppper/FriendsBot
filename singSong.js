@@ -1,6 +1,7 @@
 var builder = require('botbuilder');
 
 module.exports = function(session) {
+    session.sendTyping();
     session.send("Пока водитель ланоса щелкает еблом");
     session.sendTyping();
     setTimeout(() => {

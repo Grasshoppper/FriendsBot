@@ -9,7 +9,7 @@ module.exports = [
         session.dialogData.answer = results.response.toLowerCase();
         console.log(session.dialogData.answer);
         if (session.dialogData.answer.indexOf("гла") !== -1) {
-            session.send("Теперь в твой глаз хуй сувать можно");
+            session.send("Теперь в твой глаз будут хуй засовывать");
             session.endDialog();
         } else if (session.dialogData.answer.indexOf("жоп") !== -1) {
             session.send("Бля, братан, наверное у тебя огромное очко");

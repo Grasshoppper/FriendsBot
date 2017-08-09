@@ -19,6 +19,8 @@ server.post('/api/messages', connector.listen());
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function(session) {
     session.message.text = session.message.text.toLowerCase();
+
+    defaultMessages(session);
     
     if ( (session.message.text.indexOf("привет") !== -1) ||  (session.message.text.indexOf("здарова") !== -1) || (session.message.text.indexOf("прив") !== -1) || (session.message.text.indexOf("хай") !== -1)) {
         sayHi(session);
@@ -38,7 +40,7 @@ var bot = new builder.UniversalBot(connector, function(session) {
         }    
     }
 
-    if ( (session.message.text.indexOf("песн") !== -1) || (session.message.text.indexOf("пой") !== -1)) {
+    if ( (session.message.text.indexOf("песн") !== -1) || (session.message.text.indexOf("пой") !== -1) || (session.message.text.indexOf("хуй в рот") !== -1)) {
         singSong(session);
     }
 
@@ -46,6 +48,7 @@ var bot = new builder.UniversalBot(connector, function(session) {
 
 var sayHi = require('./sayHi');
 var singSong = require("./singSong");
+var defaultMessages = require("./defaultMessages");
 bot.dialog('pikiQuestion', require('./pikiQuestion'));
 bot.dialog('vilkaQuestion', require('./vilkaQuestion'));
 
