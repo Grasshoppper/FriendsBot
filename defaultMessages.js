@@ -26,6 +26,11 @@ module.exports = function(session) {
         session.send("Только в очко твоей мамаши");
     }
 
+    if ( (session.message.text.indexOf("иди") !== -1) && (session.message.text.indexOf("нахуй") !== -1)) {
+        session.sendTyping();
+        session.send("Только в очко твоей мамаши");
+    }
+
     if (session.message.text.indexOf("пиздец") !== -1) {
         session.sendTyping();
         session.send("Такие дела, сука");
@@ -51,7 +56,7 @@ module.exports = function(session) {
         session.send("Нихуево так, получше чем у тебя с порваной жопой");
     }
 
-    if (session.message.text.indexOf("ахах") !== -1) {
+    if (session.message.text.indexOf("аха") !== -1) {
         session.sendTyping();
         session.send("Пахаха, сука?");
     }
@@ -59,5 +64,10 @@ module.exports = function(session) {
     if (session.message.text.indexOf("ебать ты л") !== -1) {
         session.sendTyping();
         session.send("Получше тебя буду, сука?");
+    }
+
+    if ( (session.message.text.indexOf("мамку") !== -1) || (session.message.text.indexOf("ебал") !== -1)) {
+        session.sendTyping();
+        session.send("Моя мамка комп, значит ты ее в дисковод ебал");
     }
 }
