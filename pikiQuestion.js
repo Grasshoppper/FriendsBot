@@ -3,16 +3,16 @@ var builder = require('botbuilder');
 module.exports = [
     function(session) {
         session.send("Есть 2 стула, на 1 пики точенные на 2 хуи дроченные, на какой сам сядешь, на какой мать посадишь?");
-        builder.Prompts.choice(session, "Каков твой ответ", "хуи|пики", builder.ListStyle.auto);
+        builder.Prompts.text(session, "Хуи или пики?");
     },
     function(session, results) {
-        session.dialogData.answer = results.response.entity.toLowerCase();
+        session.dialogData.answer = results.response.toLowerCase();
         console.log(session.dialogData.answer);
         if (session.dialogData.answer == "хуи") {
-            session.send("Ебать ты лох");
+            session.send("Ну, тебе не привыкать");
             session.endDialog();
         } else if (session.dialogData.answer == "пики") {
-            session.send("Пидрила ебаная!!!)");
+            session.send("Те же хуи, только острые, внезапно оказались в твоем очке");
             session.endDialog();
         } else {
             session.send("Хуйню ответил");

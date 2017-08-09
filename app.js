@@ -24,8 +24,18 @@ var bot = new builder.UniversalBot(connector, function(session) {
         sayHi(session);
     }
     
-    if ( (session.message.text.indexOf("вопрос") !== -1) || (session.message.text.indexOf("загадка") !== -1)) {
-        session.beginDialog('question');
+    if ( (session.message.text.indexOf("вопрос") !== -1) || (session.message.text.indexOf("загад") !== -1)) {
+        var i = Math.floor(Math.random() * 2) + 1;       
+        switch (i) {
+            case 1:
+                session.beginDialog('pikiQuestion');
+                break;
+            case 2:
+                session.beginDialog('vilkaQuestion');
+                break;
+            default:
+                break;
+        }    
     }
 
     if ( (session.message.text.indexOf("песн") !== -1) || (session.message.text.indexOf("пой") !== -1)) {
@@ -36,7 +46,8 @@ var bot = new builder.UniversalBot(connector, function(session) {
 
 var sayHi = require('./sayHi');
 var singSong = require("./singSong");
-bot.dialog('question', require('./question'));
+bot.dialog('pikiQuestion', require('./pikiQuestion'));
+bot.dialog('vilkaQuestion', require('./vilkaQuestion'));
 
 
 
